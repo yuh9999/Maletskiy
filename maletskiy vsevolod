@@ -1,0 +1,64 @@
+#include <vector>
+#include <cmath>
+#include <iostream> 
+using namespace std; 
+// nomer 2 (5)
+// int main() 
+// { 
+//   int x = 0; int a = 0; int b = 0; int c= 0; int d= 0;
+// cin >> x>>a>>b>>c>>d;
+// int ur = (a*x + b) / (c*x + d);
+// cout<<ur;
+// }
+
+//nomer 3(5)
+
+// int main(){
+//     int n;
+//     cin>>n;
+//     if(n == 0) cout<<0;
+//     else if (n == 1) cout<<1;
+//     else{
+//      int a = 0; 
+//     int b = 1;
+//     for (int i = 2; i <=n; i++){
+//         int sledch = a+b;
+//         a= b;
+//         b = sledch;
+//     }
+
+//     cout<<b;
+//     }
+// }
+
+
+
+bool f(int n){
+       if(n == 1) return false;
+       for(int i = 2;  i<=sqrt(n); i ++){
+           if (n % i ==0) return false
+       }
+       return true;
+   }
+int main() {
+    int n;
+    cin >> n;
+    if (f(n)) cout<<"prostoe";
+    else cout<<"ne prostoe";
+}
+
+
+
+// int main(){
+//     int n;
+//     cin>>n;
+//     secvsego = n %(24 * 60 * 60);
+//     int h = n / 3600;
+//     int min = (n % 3600)/ 60;
+//     int sec = n % 60;
+//     cout<< h<< ":";
+//     if (min < 10) cout<< "0" << min<<":";
+//     else cout <<min<<":";
+//     if (sec < 10) cout<< "0" << sec<<":";
+//     else cout <<sec<<":";
+// }
