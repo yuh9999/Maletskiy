@@ -1,0 +1,235 @@
+номер 1 (легкий)
+#include <bits/stdc++.h>
+using namespace std;
+
+class student{
+public:
+    student (){
+     name = "Неизвестно";
+     ID = 0;
+     srBall = 0.0;
+    }
+void displayInfo() {
+    cout <<"Имя:"<<name<<endl << "ID:"<<ID<<endl<<"srBall"<<srBall<<endl;
+}   
+    
+private:
+    string name;
+    int ID;
+    int srBall;
+    
+};
+int main() {
+    student a;
+    student b;
+	a.displayInfo();
+	b.displayInfo();
+
+}
+
+
+номер 2 легкий:
+
+#include <bits/stdc++.h>
+using namespace std;
+class Book {
+public:
+    Book(string title, string author, int year) {
+        this->title = title;
+        this->author = author;
+        this->year = year;
+        if (year > 2026 || year < 1450) {
+            cout << "предупреждение: некорректный год издания!" << endl;
+        } else {
+            cout << "книга: " << title << endl;
+            cout << "добавлена в каталог: " << year << endl;
+        }
+    }
+    void getBookInfo() {
+        cout << "книга: " << title << endl;
+        cout << "автор: " << author << endl;
+        cout << "год: " << year << endl;
+    }
+private:
+    string title;
+    string author;
+    int year;
+};
+int main() {
+    Book a("война и мир", "Лев Толстой", 1869);
+    a.getBookInfo();
+    Book b("неизвестная книга", "неизвестный автор", 1292);
+    b.getBookInfo();
+    return 0;
+}
+
+номер 3 средняя: 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+
+class Point2D {
+ 
+public:
+    
+    Point2D(int valueX, int valueY) {
+        x = valueX; 
+        y = valueY;  
+        pointCount++;  
+        cout << "точка: "<< x << "  " << y << endl;
+    }
+    Point2D(const Point2D& other) {
+        x = other.x;  
+        y = other.y;  
+        pointCount++;  
+        cout << "копия точки:"<<x<<"  "<< y<<endl;
+    }
+    ~Point2D() {
+        pointCount--;  
+        cout << "точка удалена:" << x << "  "<< y<< endl;
+    }
+    static int getPointCount() {
+        return pointCount;
+    }
+    void print() const {
+        cout << "точка:" << x << " "<< y <<endl;
+    }
+private:
+    int x, y;  
+    static int pointCount; 
+
+};
+int Point2D::pointCount = 0;
+
+void demonstrateCopy(Point2D p) {
+    cout << "внутри функции: ";
+    p.print();
+}
+int main() {
+    cout << "начальное количество точек: " << Point2D::getPointCount() << endl << endl;
+    Point2D p1(3, 4);
+    cout << "количество точек после создания p1: " << Point2D::getPointCount() << endl;
+    Point2D p2(p1);
+    cout << "количество точек после создания p2: " << Point2D::getPointCount() << endl;
+    Point2D p3 = p1;
+    cout << "количество точек после создания p3: " << Point2D::getPointCount() << endl;
+    cout << "количество точек перед вызовом функции: " << Point2D::getPointCount() << endl;
+    demonstrateCopy(p1);  
+    cout << "количество точек после вызова функции: " << Point2D::getPointCount() << endl ;
+    cout << "финальное количество точек: " << Point2D::getPointCount() << endl;
+    return 0;
+}
+
+
+
+номер 5 средний:
+#include <bits/stdc++.h>
+using namespace std;
+
+class Rectangle {
+private:
+    const double width;
+    const double height;
+    double area;        
+    double perimeter;   
+public:
+    Rectangle(double w, double h) : width(w), height(h) {
+        area = width * height;
+        perimeter = 2 * (width + height);
+    }
+    Rectangle(const Rectangle& other) : width(other.width), height(other.height) {
+        area = other.area;
+        perimeter = other.perimeter;
+    }
+    double getWidth() const { return width; }
+    double getHeight() const { return height; }
+    double getArea() const { return area; }
+    double getPerimeter() const { return perimeter; }
+    
+    void displayInfo() const {
+        cout << "прямоугольник: ширина = " << width<< ", высота = " << height<< ", площадь = " << area<< ", периметр = " << perimeter<< endl;
+    }
+};
+int main() {
+    Rectangle rect1(5.0, 3.0);
+    Rectangle rect2(10.0, 20.0);
+    Rectangle rect3(rect1);
+    rect1.displayInfo();
+    rect2.displayInfo();
+    rect3.displayInfo();
+    return 0;
+}
+
+номер 5 сложный:
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class DynamicArray {
+
+public:
+    DynamicArray(int s) {
+        size = s;                            
+        data = new int[size];          
+        for (int i = 0; i < size; i++) {
+            data[i] = i + 1;
+        }
+    }
+    ~DynamicArray() {
+        delete[] data;
+    }
+    DynamicArray(const DynamicArray& other) {
+        size = other.size;               
+        data = new int[size];       
+        for (int i = 0; i < size; i++) {
+            data[i] = other.data[i];
+        }
+    }
+    void print() const {
+        for (int i = 0; i < size; i++) {
+            cout << data[i] << " ";
+        }
+        cout << endl;
+    }
+    void setValue(int index, int value) {
+        if (index >= 0 && index < size) {
+            data[index] = value;
+        } else {
+            cout << "ошибка в  индексе " << index << " выходит за границы массива" << size << endl;
+        }
+    }
+private:
+    int* data; 
+    int size;   
+
+};
+int main() {
+    DynamicArray arr1(5);
+    cout << "arr1: ";
+    arr1.print();
+    cout << endl;
+
+   
+    DynamicArray arr2(arr1);  
+    cout << "arr2: ";
+    arr2.print();
+    cout << endl;
+
+
+    arr1.setValue(2, 99);
+    cout << "arr1 после изменения: ";
+    arr1.print();
+    cout << "arr2 после изменения arr1: ";
+    arr2.print();
+    cout << endl;
+    
+    arr1.setValue(10, 50);  
+    cout << endl;
+
+    return 0;
+}
+
+
+
