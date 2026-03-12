@@ -28,7 +28,7 @@ int main() {
 }
 
 
-номер 2 легкий:
+НОМЕР 2 легкий:---------------------------------------------------------------------------------
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -63,12 +63,10 @@ int main() {
     return 0;
 }
 
-номер 3 средняя: 
+НОМЕР 3 средняя: ---------------------------------------------------------------
 
 #include <bits/stdc++.h>
 using namespace std;
-
-
 
 class Point2D {
  
@@ -123,17 +121,12 @@ int main() {
 }
 
 
-
-номер 5 средний:
+НОИЕР 5 средний:----------------------------------------------------------------------------------
 #include <bits/stdc++.h>
 using namespace std;
 
 class Rectangle {
-private:
-    const double width;
-    const double height;
-    double area;        
-    double perimeter;   
+
 public:
     Rectangle(double w, double h) : width(w), height(h) {
         area = width * height;
@@ -151,6 +144,13 @@ public:
     void displayInfo() const {
         cout << "прямоугольник: ширина = " << width<< ", высота = " << height<< ", площадь = " << area<< ", периметр = " << perimeter<< endl;
     }
+private:
+    const double width;
+    const double height;
+    double area;        
+    double perimeter;   
+
+
 };
 int main() {
     Rectangle rect1(5.0, 3.0);
@@ -162,7 +162,7 @@ int main() {
     return 0;
 }
 
-номер 5 сложный:
+НОМЕР 4 сложный:-------------------------------------------------------
 
 #include <bits/stdc++.h>
 using namespace std;
