@@ -1,0 +1,82 @@
+
+НОМЕРА 1 И 2
+
+
+1:
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Message{
+private:
+    string text;
+    
+public:
+    Message(const string& value){
+        text = value;
+        cout<<"создано сообщение: " << text<<endl;
+    }
+    
+    ~Message(){
+        cout<<"сообщение удалено: " << text<<endl;
+    }
+    void print() const {
+        cout<<text<<endl;
+    }
+    
+    
+};
+    
+
+int main() {
+	setlocale(LC_ALL,"ru");
+    Message statMessage("привет"); // создание статического объекта через стек
+    statMessage.print();
+    Message* dynMessage = new Message("пока"); // создание диномического объекта в куче
+    dynMessage->print();
+    delete dynMessage;
+}
+
+
+
+
+2:
+#include <bits/stdc++.h>
+using namespace std;
+
+class Counter{
+  
+private:
+    int id;  // уникальный идентификатор счетчика
+    static int totalCounters; // общее количество существующих счетчиков требования
+  
+public:
+    Counter(){
+        totalCounters++;
+        id = totalCounters;
+        cout<< "cчетчик #"<<  id << " создан "<<endl;
+    }
+    
+    ~Counter(){
+         totalCounters--;
+          cout << "cчётчик #" << id << " уничтожен " << endl;
+    }
+    static int  getTotalCounters(){
+        return totalCounters;
+    }
+    
+};
+
+int Counter::totalCounters = 0; // создани статического поля
+
+int main(){
+    int n;
+    cout << "cколько счётчиков создать? "<<endl;
+    cin >> n;
+    
+    Counter* counters = new Counter[n]; // cозданидинамического массива
+    cout <<endl << "общее количество существующих счётчиков: " << Counter::getTotalCounters() << endl;
+    delete[] counters; // удаляем динмический массив
+    cout << "общее количество существующих счётчиков: " << Counter::getTotalCounters() << endl;
+}
+
